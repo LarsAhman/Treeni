@@ -5,4 +5,4 @@ a couple of years ago and got the idea for this project. You can create a
 and grade its difficulty. Afterwards you can filter your database using search terms, 
 tags and difficulties. Right now a linebreak messes up the savefile and I'm working on it.
 
-![alt text](https://raw.githubusercontent.com/LarsAhm/Treeni/master/kuvat/frontready.png)
+![alt text](https://raw.githubusercontent.com/LarsAhman/Treeni/master/kuvat/frontready.png)
