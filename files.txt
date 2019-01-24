@@ -1,0 +1,50 @@
+!https://tim.jyu.fi/view/kurssit/tie/ohj2/2017k/ht/laalahma = Suunnitelma TIMiss‰
+kuvat/paasivu2.png = ohjelman p‰‰ikkuna
+kuvat/aloitus.png = kuva ohjelman alusta
+kuvat/lisaaliike.png = kuva dialogista liikkeen lis‰‰miseen
+kuvat/tietorakenne.png = kuva tietorakenteesta
+
+kuvat/vaihe2/aloitus.png = aloitussivu scenebuilderilla
+kuvat/vaihe2/eiaukea.png = virheilmoitus scenebuilderilla
+kuvat/vaihe2/lisaa.png = liikkeen lis‰ys/muokkaus scenebuilderilla
+kuvat/vaihe2/paasivu.png = p‰‰sivu scenebuilderilla
+kuvat/vaihe2/tietoja.png = tietoja scenebuilderilla
+kuvat/vaihe2/poista.png = poistoikkuna
+kuvat/vaihe2/muokkaa.png = muokkausikkuna
+kuvat/vaihe2/tag.png = tagien muokkaus -ikkuna
+
+
+treeni/src/fxTreeni/treeni.css = tyylitiedosto
+treeni/src/fxTreeni/TreeniGUIController.java = ohjain joka k‰sittelee k‰yttˆliittym‰st‰ tulevat tapahtumat
+treeni/src/fxTreeni/TreeniGUIView.fxml = ohjelman k‰yttˆliittym‰
+treeni/src/fxTreeni/TreeniMain.java = ohjelman k‰ynnist‰v‰ p‰‰luokka
+
+
+treeni/src/fxTreeni/TagGUIController.java = controlleri tagien lis‰ys -ikkunalle
+treeni/src/fxTreeni/TagView.fxml = n‰kym‰ tagien lis‰ykseen
+treeni/src/fxTreeni/AboutView.fxml = tieton‰kym‰
+treeni/src/fxTreeni/LisaaGUIController.java = controlleri liikkeen lis‰ys/muokkaus -ikkunalle
+treeni/src/fxTreeni/LisaaView.fxml = liikkeen lis‰ys-, muokkausn‰kym‰
+treeni/src/fxTreeni/TreeniNimiView.fxml = ohjelman aloitusn‰kym‰
+treeni/src/fxTreeni/NimiGUIController.java = tiedoston kysymiselle ikkunan controller
+
+treeni/src/treeni/Liike.java = luokka yksitt‰isille liikkeelle
+treeni/src/treeni/Liikkeet.java = luokka liikkeille
+treeni/src/treeni/SailoException.java = virheilmoitus jos alkioita liikaa
+treeni/src/treeni/Tag.java = luokka Tagille
+treeni/src/treeni/Tagit.java = luokka Tageille
+treeni/src/treeni/TagID.java = luokka TagID:lle
+treeni/src/treeni/TagIDt.java = luokka TagIDeille
+treeni/src/treeni/Treenipankki.java = luokka ohjaamaan muita luokkia
+
+
+treeni/.settings/org.eclipse.jdt.core.prefs = Eclipsen k‰‰nt‰j‰n varoitukset
+treeni/.project = Eclipsen projekti
+treeni/build.fxbuild = skripti, joka tekee .jar:in
+treeni/.classpath = Eclipsen luokkapolku 
+
+
+
+treeni/treeni.jar = ohjelman jar
+treeni/fxgui.jar = tarvittu kirjasto
+treeni/Ali.jar = tarvittu kirjasto

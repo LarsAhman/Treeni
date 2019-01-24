@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import fi.jyu.mit.fxgui.ComboBoxChooser?>
+<?import fi.jyu.mit.fxgui.ListChooser?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.input.KeyCodeCombination?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fxTreeni.TreeniGUIController">
+   <children>
+      <VBox VBox.vgrow="ALWAYS">
+         <children>
+            <MenuBar>
+               <menus>
+                  <Menu mnemonicParsing="false" text="Tiedosto">
+                     <items>
+                        <MenuItem mnemonicParsing="false" onAction="#handleTallenna" text="Tallenna">
+                           <accelerator>
+                              <KeyCodeCombination alt="UP" code="S" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
+                           </accelerator>
+                        </MenuItem>
+                        <MenuItem mnemonicParsing="false" onAction="#handleAvaa" text="Avaa..." />
+                        <MenuItem mnemonicParsing="false" onAction="#handleLopeta" text="Lopeta" />
+                     </items>
+                  </Menu>
+                  <Menu mnemonicParsing="false" text="Muokkaa">
+                     <items>
+                        <MenuItem mnemonicParsing="false" onAction="#handleLisaaLiike" text="Lisää liike" />
+                        <MenuItem mnemonicParsing="false" onAction="#handleMuokkaaTag" text="Muokkaa tageja" />
+                     </items>
+                  </Menu>
+                  <Menu mnemonicParsing="false" text="Apua">
+                     <items>
+                        <MenuItem mnemonicParsing="false" onAction="#handleTietoja" text="Tietoja" />
+                        <MenuItem mnemonicParsing="false" onAction="#handleKayttoohje" text="Käyttöohje" />
+                     </items>
+                  </Menu>
+               </menus>
+            </MenuBar>
+            <HBox prefHeight="300.0" VBox.vgrow="ALWAYS">
+               <children>
+                  <VBox HBox.hgrow="NEVER">
+                     <children>
+                        <Label text="Hakuehdot">
+                           <VBox.margin>
+                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                           </VBox.margin>
+                        </Label>
+                        <GridPane hgap="10.0" vgap="10.0" VBox.vgrow="SOMETIMES">
+                           <columnConstraints>
+                              <ColumnConstraints halignment="LEFT" hgrow="NEVER" />
+                              <ColumnConstraints hgrow="SOMETIMES" />
+                              <ColumnConstraints hgrow="SOMETIMES" />
+                           </columnConstraints>
+                           <rowConstraints>
+                              <RowConstraints vgrow="SOMETIMES" />
+                              <RowConstraints vgrow="SOMETIMES" />
+                              <RowConstraints vgrow="SOMETIMES" />
+                           </rowConstraints>
+                           <children>
+                              <Label minWidth="44.0" text="Nimi:" GridPane.hgrow="NEVER" />
+                              <TextField fx:id="textHakuNimi" maxWidth="200.0" minWidth="100.0" onKeyReleased="#handleToteutaHaku" GridPane.columnIndex="1" />
+                              <Label minWidth="44.0" text="Tagit:" GridPane.hgrow="NEVER" GridPane.rowIndex="1" />
+                              <Label minWidth="44.0" text="Vaikeus:" GridPane.hgrow="NEVER" GridPane.rowIndex="2" />
+                              <ListChooser fx:id="chooserHakuTagit" maxWidth="200.0" minHeight="100.0" minWidth="100.0" prefHeight="50.0" rivit="&#10;" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                              <VBox spacing="10.0" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                                 <children>
+                                    <Button maxWidth="120.0" minWidth="120.0" mnemonicParsing="false" onAction="#handleLisaaHakuTag" text="Lisää hakutag" />
+                                    <Button maxWidth="120.0" minWidth="120.0" mnemonicParsing="false" onAction="#handlePoistaHakuTag" text="Poista hakutag" />
+                                 </children>
+                              </VBox>
+                              <ComboBoxChooser fx:id="comboHakuVaikeus" onAction="#handleToteutaHaku" rivit="Any&#10;1&#10;2&#10;3&#10;4&#10;5" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                              <Button mnemonicParsing="false" onAction="#handleResetoiHaku" text="Resetoi haku" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                           </children>
+                           <padding>
+                              <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+                           </padding>
+                        </GridPane>
+                        <HBox prefHeight="100.0" prefWidth="200.0" VBox.vgrow="ALWAYS" />
+                        <HBox VBox.vgrow="ALWAYS">
+                           <children>
+                              <VBox spacing="10.0">
+                                 <children>
+                                    <Label text="Muokkaa tageja">
+                                       <VBox.margin>
+                                          <Insets left="10.0" />
+                                       </VBox.margin>
+                                    </Label>
+                                    <HBox spacing="50.0">
+                                       <children>
+                                          <Label text="Hae tageja" />
+                                          <TextField fx:id="textTagHaku" onKeyReleased="#handleEtsiTageja" HBox.hgrow="ALWAYS" />
+                                          <Button mnemonicParsing="false" onAction="#handleYhdista" text="Yhdistä" />
+                                       </children>
+                                       <VBox.margin>
+                                          <Insets left="10.0" />
+                                       </VBox.margin>
+                                    </HBox>
+                                 </children>
+                              </VBox>
+                           </children>
+                        </HBox>
+                        <ListChooser fx:id="chooserTag" minHeight="200.0" minWidth="200.0" rivit="">
+                           <VBox.margin>
+                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                           </VBox.margin>
+                        </ListChooser>
+                        <HBox prefHeight="100.0" prefWidth="200.0" spacing="50.0">
+                           <children>
+                              <TextField fx:id="textTag" />
+                              <VBox spacing="15.0">
+                                 <children>
+                                    <Button fx:id="buttonUusiTag" defaultButton="true" mnemonicParsing="false" onAction="#lisaaTag" text="Lisää tag" />
+                                 </children>
+                              </VBox>
+                              <Button fx:id="buttonPoistaTag" mnemonicParsing="false" onAction="#handlePoistaTag" text="Poista tag" />
+                           </children>
+                           <VBox.margin>
+                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                           </VBox.margin>
+                        </HBox>
+                        <HBox minHeight="45.0" spacing="10.0" VBox.vgrow="NEVER">
+                           <children>
+                              <Button mnemonicParsing="false" onAction="#handleTallenna" text="Tallenna" />
+                           </children>
+                           <padding>
+                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                           </padding>
+                        </HBox>
+                     </children>
+                  </VBox>
+                  <VBox alignment="CENTER_LEFT" HBox.hgrow="NEVER">
+                     <children>
+                        <HBox VBox.vgrow="NEVER">
+                           <children>
+                              <Label minWidth="24.0" text="Liike" HBox.hgrow="ALWAYS">
+                                 <HBox.margin>
+                                    <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                 </HBox.margin>
+                              </Label>
+                              <Label minWidth="41.0" text="Vaikeus" HBox.hgrow="ALWAYS">
+                                 <HBox.margin>
+                                    <Insets bottom="10.0" left="145.0" right="10.0" top="10.0" />
+                                 </HBox.margin>
+                              </Label>
+                           </children>
+                        </HBox>
+                        <ListChooser fx:id="chooserLiikkeet" maxWidth="350.0" minWidth="100.0" rivit="" snapToPixel="false" VBox.vgrow="ALWAYS">
+                           <VBox.margin>
+                              <Insets left="10.0" />
+                           </VBox.margin></ListChooser>
+                        <HBox VBox.vgrow="NEVER">
+                           <children>
+                              <Button mnemonicParsing="false" onAction="#handleLisaaLiike" text="Lisää liike" />
+                           </children>
+                           <padding>
+                              <Insets bottom="10.0" left="1.0" right="10.0" top="10.0" />
+                           </padding>
+                        </HBox>
+                     </children>
+                  </VBox>
+                  <VBox prefWidth="350.0" HBox.hgrow="ALWAYS">
+                     <children>
+                        <Label text="Liikkeen kuvaus">
+                           <VBox.margin>
+                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                           </VBox.margin>
+                        </Label>
+                        <BorderPane fx:id="panelLiike" VBox.vgrow="ALWAYS">
+                           <center>
+                              <TextArea editable="false" wrapText="true" BorderPane.alignment="CENTER" />
+                           </center>
+                           <bottom>
+                              <VBox spacing="5.0" BorderPane.alignment="CENTER">
+                                 <children>
+                                    <HBox>
+                                       <children>
+                                          <VBox HBox.hgrow="ALWAYS" />
+                                          <Label text="Liikkeen tagit">
+                                             <HBox.margin>
+                                                <Insets right="70.0" top="5.0" />
+                                             </HBox.margin>
+                                          </Label>
+                                          <VBox HBox.hgrow="ALWAYS" />
+                                       </children>
+                                    </HBox>
+                                    <HBox alignment="CENTER" prefHeight="100.0" VBox.vgrow="ALWAYS">
+                                       <children>
+                                          <ListChooser fx:id="chooserLiikkeenTagit" rivit="" HBox.hgrow="ALWAYS">
+                                             <HBox.margin>
+                                                <Insets bottom="5.0" left="5.0" right="5.0" />
+                                             </HBox.margin>
+                                          </ListChooser>
+                                          <Button mnemonicParsing="false" onAction="#handlePoistaLiikkeenTag" text="Poista tag">
+                                             <HBox.margin>
+                                                <Insets right="5.0" />
+                                             </HBox.margin>
+                                          </Button>
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </VBox>
+                           </bottom>
+                        </BorderPane>
+                        <HBox spacing="5.0" VBox.vgrow="NEVER">
+                           <children>
+                              <Button minWidth="104.0" mnemonicParsing="false" onAction="#handleMuokkaaLiike" text="Muokkaa" HBox.hgrow="NEVER" />
+                              <VBox HBox.hgrow="ALWAYS" />
+                              <Button minWidth="48.0" mnemonicParsing="false" onAction="#handlePoista" text="Poista Liike" HBox.hgrow="NEVER">
+                                 <HBox.margin>
+                                    <Insets />
+                                 </HBox.margin>
+                              </Button>
+                           </children>
+                           <padding>
+                              <Insets bottom="10.0" right="10.0" top="10.0" />
+                           </padding>
+                        </HBox>
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+   </children>
+</VBox>
